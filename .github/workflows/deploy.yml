@@ -25,7 +25,7 @@ jobs:
         uses: withastro/action@v3
         with:
           path: .            # root location of your Astro project inside the repo
-          node-version: 22git    # optional, defaults to 20
+          node-version: 22   # optional, defaults to 20
           package-manager: npm@latest # optional, autodetected from your lockfile
 
   deploy:
