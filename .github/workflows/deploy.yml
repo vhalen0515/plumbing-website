@@ -23,10 +23,10 @@ jobs:
 
       - name: Install, build, and upload your site
         uses: withastro/action@v3
-        # with:
-        #   path: .            # root location of your Astro project inside the repo
-        #   node-version: 20   # optional, defaults to 20
-        #   package-manager: npm@latest # optional, autodetected from your lockfile
+        with:
+          path: .            # root location of your Astro project inside the repo
+          node-version: 22git    # optional, defaults to 20
+          package-manager: npm@latest # optional, autodetected from your lockfile
 
   deploy:
     needs: build
