@@ -1,0 +1,25 @@
+---
+import Button from '../../components/ui/Button.astro';
+import { site } from '../../data/site.js';
+---
+
+<section class="cta-band-wrap">
+  <div class="cta-band r-strip">
+    <div>
+      <h2 class="cta-band__heading">Not sure what you need? We&rsquo;ll take a look.</h2>
+      <p class="cta-band__body">Tell us what&rsquo;s going on and we&rsquo;ll give you an honest recommendation and a free quote.</p>
+    </div>
+    <div class="cta-band__buttons">
+      <Button href="/contact" variant="inverse" size="lg">REQUEST A QUOTE</Button>
+      <Button href={site.phoneHref} variant="outline" size="lg">CALL {site.phone}</Button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta-band-wrap { max-width: 1200px; margin: 0 auto; padding: 60px 32px 80px; }
+  .cta-band { background: #c62828; border-radius: 6px; padding: 48px 44px; display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: center; }
+  .cta-band__heading { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 34px; color: #fff; line-height: 1.05; margin-bottom: 10px; }
+  .cta-band__body { font-size: 17px; color: #ffd7d3; max-width: 560px; }
+  .cta-band__buttons { display: flex; flex-direction: column; gap: 12px; }
+</style>

@@ -1,0 +1,107 @@
+---
+import { reasons } from '../../data/services.js';
+---
+
+<section class="why-us r-split">
+    <div class="why-us__photo">[ team / job-site photo ]</div>
+    <div>
+        <div class="eyebrow">WHY VALLEY LINE</div>
+        <h2 class="why-us__heading">Neighbors you can trust with your home</h2>
+        <div class="why-us__list">
+            {
+                reasons.map((r) => (
+                    <div class="why-us__item">
+                        <div class="why-us__check">&#10003;</div>
+                        <div>
+                            <div class="why-us__title">{r.title}</div>
+                            <div class="why-us__body">{r.body}</div>
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</section>
+
+<style>
+    .why-us {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 70px 32px 80px;
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 56px;
+        align-items: center;
+    }
+    .why-us__photo {
+        aspect-ratio: 5/4;
+        border-radius: 4px;
+        border: 1px solid #e4e2dd;
+        background: repeating-linear-gradient(
+            45deg,
+            #e7e5e1,
+            #e7e5e1 12px,
+            #dedcd7 12px,
+            #dedcd7 24px
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #9a988f;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 13px;
+        text-align: center;
+        padding: 24px;
+    }
+    .eyebrow {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 13px;
+        letter-spacing: 0.14em;
+        color: #c62828;
+        margin-bottom: 12px;
+    }
+    .why-us__heading {
+        font-family: 'Oswald', sans-serif;
+        font-weight: 700;
+        font-size: 38px;
+        line-height: 1.08;
+        color: #17191b;
+        margin-bottom: 24px;
+    }
+    .why-us__list {
+        display: grid;
+        gap: 20px;
+    }
+    .why-us__item {
+        display: flex;
+        gap: 15px;
+        align-items: flex-start;
+    }
+    .why-us__check {
+        flex: none;
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        background: #c62828;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 15px;
+        font-weight: 700;
+        margin-top: 1px;
+    }
+    .why-us__title {
+        font-family: 'Oswald', sans-serif;
+        font-weight: 600;
+        font-size: 19px;
+        letter-spacing: 0.02em;
+        color: #17191b;
+        margin-bottom: 3px;
+    }
+    .why-us__body {
+        font-size: 15px;
+        line-height: 1.55;
+        color: #5c5e62;
+    }
+</style>

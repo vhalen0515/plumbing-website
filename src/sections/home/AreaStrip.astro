@@ -1,0 +1,28 @@
+---
+import { areasShort } from '../../data/areas.js';
+---
+
+<section class="area-strip">
+  <div class="area-strip__inner r-strip">
+    <div>
+      <div class="area-strip__eyebrow">WHERE WE WORK</div>
+      <h2 class="area-strip__heading">Proudly serving the Central Valley</h2>
+      <div class="area-strip__tags">
+        {areasShort.map((a) => (
+          <span class="area-tag">{a}</span>
+        ))}
+      </div>
+    </div>
+    <a href="/service-areas" class="area-strip__link">VIEW SERVICE AREAS &rarr;</a>
+  </div>
+</section>
+
+<style>
+  .area-strip { background: #17191b; color: #fff; }
+  .area-strip__inner { max-width: 1200px; margin: 0 auto; padding: 56px 32px; display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: center; }
+  .area-strip__eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: .14em; color: #ff8a80; margin-bottom: 12px; }
+  .area-strip__heading { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 32px; color: #fff; margin-bottom: 16px; }
+  .area-strip__tags { display: flex; flex-wrap: wrap; gap: 10px; max-width: 640px; }
+  .area-tag { font-family: 'Oswald', sans-serif; font-weight: 500; letter-spacing: .03em; font-size: 15px; color: #e6e4df; border: 1px solid #3a3c40; border-radius: 3px; padding: 7px 14px; }
+  .area-strip__link { flex: none; background: #c62828; color: #fff; font-family: 'Oswald', sans-serif; font-weight: 600; letter-spacing: .04em; font-size: 16px; padding: 15px 26px; border-radius: 3px; white-space: nowrap; }
+</style>

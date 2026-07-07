@@ -1,0 +1,18 @@
+---
+import Button from '../../components/ui/Button.astro';
+import { site } from '../../data/site.js';
+---
+
+<section class="about-cta">
+  <h2 class="about-cta__heading">Ready to work with a plumber you can trust?</h2>
+  <div class="about-cta__buttons">
+    <Button href="/contact" size="lg">REQUEST A QUOTE</Button>
+    <Button href={site.phoneHref} variant="outline-dark" size="lg">CALL {site.phone}</Button>
+  </div>
+</section>
+
+<style>
+  .about-cta { max-width: 1200px; margin: 0 auto; padding: 56px 32px 84px; text-align: center; }
+  .about-cta__heading { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 40px; color: #17191b; margin-bottom: 16px; text-wrap: balance; }
+  .about-cta__buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 8px; }
+</style>

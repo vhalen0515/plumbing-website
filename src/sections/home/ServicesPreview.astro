@@ -1,0 +1,93 @@
+---
+import { servicesShort } from '../../data/services.js';
+---
+
+<section class="services-preview">
+    <div class="services-preview__head">
+        <div>
+            <div class="eyebrow">WHAT WE DO</div>
+            <h2 class="heading-2">Plumbing services you can count on</h2>
+        </div>
+        <a href="/services" class="services-preview__link">ALL SERVICES &rarr;</a>
+    </div>
+    <div class="services-preview__grid r-grid-3">
+        {
+            servicesShort.map((s) => (
+                <a href="/services" class="service-card" data-reveal>
+                    <div class="service-card__bar" />
+                    <h3 class="service-card__name">{s.name}</h3>
+                    <p class="service-card__desc">{s.desc}</p>
+                </a>
+            ))
+        }
+    </div>
+</section>
+
+<style>
+    .services-preview {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 80px 32px 20px;
+    }
+    .services-preview__head {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        gap: 24px;
+        margin-bottom: 38px;
+        flex-wrap: wrap;
+    }
+    .eyebrow {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 13px;
+        letter-spacing: 0.14em;
+        color: #c62828;
+        margin-bottom: 10px;
+    }
+    .heading-2 {
+        font-family: 'Oswald', sans-serif;
+        font-weight: 700;
+        font-size: 40px;
+        letter-spacing: 0.01em;
+        color: #17191b;
+    }
+    .services-preview__link {
+        font-family: 'Oswald', sans-serif;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        color: #c62828;
+        font-size: 15px;
+        white-space: nowrap;
+    }
+    .services-preview__grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+    }
+    .service-card {
+        display: block;
+        background: #fff;
+        border: 1px solid #e4e2dd;
+        border-radius: 4px;
+        padding: 28px 26px;
+    }
+    .service-card__bar {
+        width: 40px;
+        height: 3px;
+        background: #c62828;
+        margin-bottom: 18px;
+    }
+    .service-card__name {
+        font-family: 'Oswald', sans-serif;
+        font-weight: 600;
+        font-size: 22px;
+        letter-spacing: 0.02em;
+        color: #17191b;
+        margin-bottom: 9px;
+    }
+    .service-card__desc {
+        font-size: 15px;
+        line-height: 1.55;
+        color: #5c5e62;
+    }
+</style>

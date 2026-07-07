@@ -1,0 +1,55 @@
+---
+import { site } from '../../data/site.js';
+import { areasContact } from '../../data/areas.js';
+---
+
+<div class="sidebar">
+  <div class="sidebar__card sidebar__card--dark">
+    <h3 class="sidebar__heading">Reach us directly</h3>
+    <div class="sidebar__list">
+      <div>
+        <div class="sidebar__label">PHONE</div>
+        <a href={site.phoneHref} class="sidebar__phone">{site.phone}</a>
+      </div>
+      <div>
+        <div class="sidebar__label">EMAIL</div>
+        <a href={`mailto:${site.email}`} class="sidebar__value">{site.email}</a>
+      </div>
+      <div>
+        <div class="sidebar__label">OFFICE</div>
+        <div class="sidebar__value">{site.address.line1}<br />{site.address.line2}</div>
+      </div>
+      <div>
+        <div class="sidebar__label">HOURS</div>
+        <div class="sidebar__value sidebar__value--hours">{site.hours.weekdays}<br />{site.hours.saturday}<br />{site.hours.sunday}</div>
+      </div>
+    </div>
+  </div>
+  <div class="sidebar__card">
+    <h3 class="sidebar__card-title">Where we work</h3>
+    <p class="sidebar__card-sub">Serving communities across the Central Valley:</p>
+    <div class="sidebar__tags">
+      {areasContact.map((a) => (
+        <span class="sidebar__tag">{a}</span>
+      ))}
+    </div>
+    <a href="/service-areas" class="sidebar__link">SEE FULL SERVICE AREA &rarr;</a>
+  </div>
+</div>
+
+<style>
+  .sidebar { display: flex; flex-direction: column; gap: 16px; }
+  .sidebar__card { background: #fff; border: 1px solid #e4e2dd; border-radius: 6px; padding: 24px 24px; }
+  .sidebar__card--dark { background: #17191b; color: #fff; border: none; padding: 28px 26px; }
+  .sidebar__heading { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 20px; letter-spacing: .02em; margin-bottom: 20px; }
+  .sidebar__list { display: flex; flex-direction: column; gap: 18px; }
+  .sidebar__label { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: .1em; color: #ff8a80; margin-bottom: 4px; }
+  .sidebar__phone { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 22px; color: #fff; }
+  .sidebar__value { font-size: 15px; color: #e6e4df; line-height: 1.5; }
+  .sidebar__value--hours { line-height: 1.6; }
+  .sidebar__card-title { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 17px; letter-spacing: .02em; color: #17191b; margin-bottom: 6px; }
+  .sidebar__card-sub { font-size: 13px; color: #5c5e62; margin-bottom: 14px; }
+  .sidebar__tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .sidebar__tag { font-family: 'Oswald', sans-serif; font-weight: 500; letter-spacing: .02em; font-size: 13px; color: #3c3e42; background: #f2f0ec; border: 1px solid #e4e2dd; border-radius: 3px; padding: 5px 11px; }
+  .sidebar__link { display: inline-block; margin-top: 16px; font-family: 'Oswald', sans-serif; font-weight: 600; letter-spacing: .03em; color: #c62828; font-size: 14px; }
+</style>

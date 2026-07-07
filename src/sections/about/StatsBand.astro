@@ -1,0 +1,21 @@
+---
+import { stats } from '../../data/about.js';
+---
+
+<div class="stats-band">
+  <div class="stats-band__inner r-grid-4">
+    {stats.map((s) => (
+      <div>
+        <div class="stats-band__value">{s.value}</div>
+        <div class="stats-band__label">{s.label}</div>
+      </div>
+    ))}
+  </div>
+</div>
+
+<style>
+  .stats-band { background: #17191b; color: #fff; }
+  .stats-band__inner { max-width: 1200px; margin: 0 auto; padding: 44px 32px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; text-align: center; }
+  .stats-band__value { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 42px; line-height: 1; color: #ff5a4d; }
+  .stats-band__label { font-size: 14px; letter-spacing: .03em; color: #b8b6b1; margin-top: 6px; }
+</style>

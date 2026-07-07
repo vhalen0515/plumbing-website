@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/ui/PageHero.astro';
+import QuoteForm from '../sections/contact/QuoteForm.astro';
+import ContactSidebar from '../sections/contact/ContactSidebar.astro';
+import MapStrip from '../sections/contact/MapStrip.astro';
+---
+
+<BaseLayout title="Contact & Free Quote — Valley Line Plumbing Co." active="contact">
+  <PageHero
+    eyebrow="CONTACT US"
+    title="Get your free quote"
+    description="Tell us what's going on and we'll get right back to you with honest advice and an upfront price. Prefer to talk? Call anytime during business hours."
+    maxTitleWidth="760px"
+  />
+  <section class="contact-main r-split">
+    <QuoteForm />
+    <ContactSidebar />
+  </section>
+  <MapStrip />
+</BaseLayout>
+
+<style>
+  .contact-main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 32px 40px;
+    display: grid;
+    grid-template-columns: 1.25fr 0.75fr;
+    gap: 44px;
+    align-items: start;
+  }
+</style>

@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/ui/PageHero.astro';
+import ServicesGrid from '../sections/services/ServicesGrid.astro';
+import Process from '../sections/services/Process.astro';
+import CTABand from '../sections/services/CTABand.astro';
+---
+
+<BaseLayout title="Services — Valley Line Plumbing Co." active="services">
+    <PageHero
+        eyebrow="OUR SERVICES"
+        title="Full-service plumbing for homes and businesses across the Valley"
+        description="From a dripping faucet to a whole-home repipe, our licensed team handles it with flat-rate pricing and workmanship we stand behind."
+    />
+    <ServicesGrid />
+    <Process />
+    <CTABand />
+</BaseLayout>

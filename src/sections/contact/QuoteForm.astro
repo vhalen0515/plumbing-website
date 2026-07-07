@@ -1,0 +1,119 @@
+---
+import { serviceOptions } from '../../data/contact.js';
+import { site } from '../../data/site.js';
+---
+
+<div class="form-card">
+  <!-- success (hidden until submit) -->
+  <div id="quote-success" class="form-success">
+    <div class="form-success__icon">&#10003;</div>
+    <h2 class="form-success__heading">Request received!</h2>
+    <p class="form-success__body">Thanks — we&rsquo;ll reach out shortly to confirm details and schedule your visit. For urgent issues, call us at <strong class="form-success__phone">{site.phone}</strong>.</p>
+    <button type="button" id="quote-reset" class="form-success__reset">SUBMIT ANOTHER REQUEST</button>
+  </div>
+
+  <!-- form -->
+  <form id="quote-form">
+    <h2 class="form-heading">Request a free quote</h2>
+    <p class="form-sub">We typically respond within a few business hours.</p>
+    <div class="form-grid r-grid-2">
+      <div>
+        <label for="f-name">Full name</label>
+        <input id="f-name" name="name" type="text" required placeholder="Jane Doe" />
+      </div>
+      <div>
+        <label for="f-phone">Phone</label>
+        <input id="f-phone" name="phone" type="tel" required placeholder={site.phone} />
+      </div>
+      <div>
+        <label for="f-email">Email</label>
+        <input id="f-email" name="email" type="email" placeholder="jane@email.com" />
+      </div>
+      <div>
+        <label for="f-city">City / town</label>
+        <input id="f-city" name="city" type="text" placeholder="Fresno" />
+      </div>
+      <div class="form-grid__full">
+        <label for="f-service">What do you need help with?</label>
+        <select id="f-service" name="service">
+          {serviceOptions.map((o) => <option value={o}>{o}</option>)}
+        </select>
+      </div>
+      <div class="form-grid__full">
+        <label for="f-message">Tell us a bit more</label>
+        <textarea id="f-message" name="message" rows="4" placeholder="Describe the problem, when it started, and the best time to reach you..."></textarea>
+      </div>
+    </div>
+    <div class="form-actions">
+      <button type="submit" class="form-submit">SEND REQUEST</button>
+      <span class="form-note">No spam &middot; your info stays private</span>
+    </div>
+  </form>
+</div>
+
+<style>
+  .form-card { background: #fff; border: 1px solid #e4e2dd; border-radius: 6px; padding: 38px 38px 34px; }
+  .form-success { display: none; text-align: center; padding: 40px 12px; }
+  .form-success__icon { width: 66px; height: 66px; background: #eaf7ef; border: 1px solid #bfe6cd; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #2f9e57; font-size: 32px; margin: 0 auto 22px; }
+  .form-success__heading { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 30px; color: #17191b; margin-bottom: 10px; }
+  .form-success__body { font-size: 16px; line-height: 1.6; color: #5c5e62; max-width: 420px; margin: 0 auto 24px; }
+  .form-success__phone { color: #c62828; }
+  .form-success__reset { background: #17191b; color: #fff; font-family: 'Oswald', sans-serif; font-weight: 600; letter-spacing: .04em; font-size: 15px; padding: 13px 26px; border: none; border-radius: 3px; cursor: pointer; }
+  .form-heading { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 26px; color: #17191b; margin-bottom: 6px; letter-spacing: .01em; }
+  .form-sub { font-size: 14px; color: #5c5e62; margin-bottom: 26px; }
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 20px; }
+  .form-grid__full { grid-column: 1 / -1; }
+  .form-actions { display: flex; align-items: center; gap: 16px; margin-top: 24px; flex-wrap: wrap; }
+  .form-submit { background: #c62828; color: #fff; font-family: 'Oswald', sans-serif; font-weight: 600; letter-spacing: .04em; font-size: 17px; padding: 15px 34px; border: none; border-radius: 3px; cursor: pointer; }
+  .form-note { font-size: 13px; color: #8a8880; font-family: 'JetBrains Mono', monospace; }
+
+  #quote-form :global(input),
+  #quote-form :global(select),
+  #quote-form :global(textarea) {
+    font-family: 'Public Sans', sans-serif;
+    font-size: 15px;
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #d7d5cf;
+    border-radius: 4px;
+    background: #fff;
+    color: #1a1c1e;
+    outline: none;
+  }
+  #quote-form :global(input:focus),
+  #quote-form :global(select:focus),
+  #quote-form :global(textarea:focus) {
+    border-color: #c62828;
+    box-shadow: 0 0 0 3px rgba(198, 40, 40, 0.12);
+  }
+  #quote-form :global(label) {
+    display: block;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 0.05em;
+    color: #3c3e42;
+    margin-bottom: 7px;
+    text-transform: uppercase;
+  }
+</style>
+
+<script>
+  const form = document.getElementById('quote-form');
+  const success = document.getElementById('quote-success');
+  const reset = document.getElementById('quote-reset');
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    // TODO: POST the form data to your email service / CRM / backend endpoint here.
+    // e.g. fetch('/api/quote', { method: 'POST', body: new FormData(form) })
+    form.style.display = 'none';
+    if (success) success.style.display = 'block';
+  });
+
+  reset?.addEventListener('click', () => {
+    form?.reset();
+    if (success) success.style.display = 'none';
+    if (form) form.style.display = 'block';
+  });
+</script>

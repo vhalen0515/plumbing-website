@@ -1,0 +1,78 @@
+---
+
+---
+
+<section class="map-strip-wrap">
+    <div class="map-strip">
+        <div class="map-strip__frame">
+            <div class="map-strip__glow"></div>
+            <div class="map-strip__label">
+                [ embed Google Map here ]<br /><span
+                    >central valley coverage &amp; office location</span
+                >
+            </div>
+            <div class="map-strip__pin-wrap">
+                <div class="map-strip__pin"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .map-strip-wrap {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px 32px 80px;
+    }
+    .map-strip {
+        border-radius: 6px;
+        border: 1px solid #e4e2dd;
+        overflow: hidden;
+        background: #fff;
+    }
+    .map-strip__frame {
+        height: 300px;
+        position: relative;
+        background: repeating-linear-gradient(
+            45deg,
+            #eceae6,
+            #eceae6 14px,
+            #e4e2dd 14px,
+            #e4e2dd 28px
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .map-strip__glow {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at 50% 50%, rgba(198, 40, 40, 0.14), transparent 45%);
+    }
+    .map-strip__label {
+        position: relative;
+        text-align: center;
+        color: #8f8d85;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 13px;
+        line-height: 1.7;
+    }
+    .map-strip__label span {
+        font-size: 11px;
+    }
+    .map-strip__pin-wrap {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -100%);
+    }
+    .map-strip__pin {
+        width: 20px;
+        height: 20px;
+        background: #c62828;
+        border: 3px solid #fff;
+        border-radius: 50% 50% 50% 0;
+        transform: rotate(-45deg);
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+    }
+</style>

@@ -1,0 +1,52 @@
+---
+import Button from '../../components/ui/Button.astro';
+import { site } from '../../data/site.js';
+---
+
+<section class="not-sure-wrap">
+    <div class="not-sure">
+        <h2 class="not-sure__heading">Don&rsquo;t see your town? Just ask.</h2>
+        <p class="not-sure__body">
+            We cover much of the Central Valley and are always expanding. Call and we&rsquo;ll let
+            you know right away.
+        </p>
+        <div class="not-sure__buttons">
+            <Button href={site.phoneHref} variant="inverse" size="lg">CALL {site.phone}</Button>
+            <Button href="/contact" variant="outline" size="lg">REQUEST A QUOTE</Button>
+        </div>
+    </div>
+</section>
+
+<style>
+    .not-sure-wrap {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 44px 32px 84px;
+    }
+    .not-sure {
+        background: #c62828;
+        border-radius: 6px;
+        padding: 44px;
+        text-align: center;
+    }
+    .not-sure__heading {
+        font-family: 'Oswald', sans-serif;
+        font-weight: 700;
+        font-size: 32px;
+        color: #fff;
+        margin-bottom: 10px;
+        text-wrap: balance;
+    }
+    .not-sure__body {
+        font-size: 17px;
+        color: #ffd7d3;
+        max-width: 540px;
+        margin: 0 auto 26px;
+    }
+    .not-sure__buttons {
+        display: flex;
+        gap: 14px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+</style>

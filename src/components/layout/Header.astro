@@ -1,0 +1,171 @@
+---
+import { site, navLinks } from '../../data/site.js';
+
+export interface Props {
+    active?: 'home' | 'services' | 'about' | 'areas' | 'contact';
+}
+
+const { active = 'home' } = Astro.props;
+---
+
+<div class="topbar">
+    <div class="topbar__inner">
+        <div class="topbar__left">
+            <span class="topbar__hours"
+                ><span class="dot"></span>Extended hours &middot; Mon&ndash;Sat 7am&ndash;7pm</span
+            >
+            <span class="topbar__sep">|</span>
+            <span>{site.license}</span>
+        </div>
+        <a href={site.phoneHref} class="topbar__phone">CALL {site.phone}</a>
+    </div>
+</div>
+
+<header class="site-header">
+    <div class="site-header__inner">
+        <a href="/" class="brand">
+            <div class="brand__mark">V</div>
+            <div class="brand__text">
+                <div class="brand__name">VALLEY LINE</div>
+                <div class="brand__tag">{site.tagline}</div>
+            </div>
+        </a>
+        <input type="checkbox" id="nav-cb" class="r-nav-cb" />
+        <label for="nav-cb" class="r-nav-btn" aria-label="Toggle menu">&#9776;</label>
+        <nav class="r-nav">
+            {
+                navLinks.map((link) => (
+                    <a
+                        href={link.href}
+                        class:list={['nav-link', { 'nav-link--active': active === link.key }]}
+                    >
+                        {link.label}
+                    </a>
+                ))
+            }
+            <a href="/contact" class="nav-cta">GET A QUOTE</a>
+        </nav>
+    </div>
+</header>
+
+<style>
+    .topbar {
+        background: #17191b;
+        color: #c9c7c2;
+        font-size: 13px;
+        letter-spacing: 0.02em;
+    }
+    .topbar__inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 9px 32px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        flex-wrap: wrap;
+    }
+    .topbar__left {
+        display: flex;
+        gap: 22px;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .topbar__hours {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+    }
+    .dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #33c06a;
+        display: inline-block;
+    }
+    .topbar__sep {
+        color: #6b6d70;
+    }
+    .topbar__phone {
+        color: #fff;
+        font-weight: 600;
+        font-family: 'Oswald', sans-serif;
+        letter-spacing: 0.04em;
+        font-size: 14px;
+    }
+
+    .site-header {
+        background: #fff;
+        border-bottom: 1px solid #e4e2dd;
+        position: sticky;
+        top: 0;
+        z-index: 50;
+    }
+    .site-header__inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 16px 32px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 24px;
+        position: relative;
+    }
+    .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+    .brand__mark {
+        width: 42px;
+        height: 42px;
+        background: #c62828;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-family: 'Oswald', sans-serif;
+        font-weight: 700;
+        font-size: 22px;
+        border-radius: 3px;
+    }
+    .brand__text {
+        line-height: 1.05;
+    }
+    .brand__name {
+        font-family: 'Oswald', sans-serif;
+        font-weight: 700;
+        font-size: 20px;
+        letter-spacing: 0.03em;
+        color: #17191b;
+    }
+    .brand__tag {
+        font-size: 11px;
+        letter-spacing: 0.28em;
+        color: #c62828;
+        font-weight: 600;
+    }
+
+    .nav-link {
+        font-family: 'Oswald', sans-serif;
+        font-weight: 500;
+        letter-spacing: 0.05em;
+        font-size: 15px;
+        color: #54565a;
+    }
+    .nav-link--active {
+        color: #17191b;
+        padding-bottom: 2px;
+        border-bottom: 2px solid #c62828;
+    }
+    .nav-cta {
+        font-family: 'Oswald', sans-serif;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        font-size: 14px;
+        color: #fff;
+        background: #c62828;
+        padding: 11px 20px;
+        border-radius: 3px;
+    }
+</style>

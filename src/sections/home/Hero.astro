@@ -1,0 +1,115 @@
+---
+import Button from '../../components/ui/Button.astro';
+import { site } from '../../data/site.js';
+---
+
+<section class="hero">
+    <div class="hero__bg"></div>
+    <div class="hero__inner r-split">
+        <div>
+            <div class="hero__eyebrow">SERVING THE CENTRAL VALLEY SINCE 1998</div>
+            <h1 class="hero__title r-h1">
+                DEPENDABLE PLUMBING,<br /><span class="hero__accent">DONE RIGHT</span> THE FIRST TIME.
+            </h1>
+            <p class="hero__body">
+                Family-owned and locally trusted for repairs, water heaters, drains, and repiping
+                across Fresno, Clovis, Visalia, and beyond. Licensed, insured, and upfront on price.
+            </p>
+            <div class="hero__ctas">
+                <Button href="/contact" size="lg">REQUEST A FREE QUOTE</Button>
+                <Button href={site.phoneHref} variant="outline" size="lg">CALL {site.phone}</Button>
+            </div>
+        </div>
+        <div class="hero__photo">[ hero photo —<br />technician / branded truck ]</div>
+    </div>
+</section>
+
+<style>
+    .hero {
+        position: relative;
+        background: #17191b;
+        color: #fff;
+        overflow: hidden;
+    }
+    .hero__bg {
+        position: absolute;
+        inset: 0;
+        background: repeating-linear-gradient(
+            135deg,
+            #1c1e21,
+            #1c1e21 24px,
+            #191b1e 24px,
+            #191b1e 48px
+        );
+        opacity: 0.7;
+    }
+    .hero__inner {
+        position: relative;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 84px 32px 92px;
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 56px;
+        align-items: center;
+    }
+    .hero__eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        background: rgba(198, 40, 40, 0.16);
+        border: 1px solid rgba(198, 40, 40, 0.4);
+        color: #ff8a80;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 12px;
+        letter-spacing: 0.05em;
+        padding: 7px 13px;
+        border-radius: 3px;
+        margin-bottom: 26px;
+    }
+    .hero__title {
+        font-family: 'Oswald', sans-serif;
+        font-weight: 700;
+        font-size: 62px;
+        line-height: 1.02;
+        letter-spacing: 0.005em;
+        text-wrap: balance;
+        margin-bottom: 22px;
+    }
+    .hero__accent {
+        color: #ff5a4d;
+    }
+    .hero__body {
+        font-size: 19px;
+        line-height: 1.55;
+        color: #c9c7c2;
+        max-width: 520px;
+        margin-bottom: 34px;
+    }
+    .hero__ctas {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+    .hero__photo {
+        aspect-ratio: 4/5;
+        border-radius: 4px;
+        border: 1px solid #34363a;
+        background: repeating-linear-gradient(
+            45deg,
+            #2a2c2f,
+            #2a2c2f 12px,
+            #242629 12px,
+            #242629 24px
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #7c7e82;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 13px;
+        text-align: center;
+        padding: 24px;
+    }
+</style>

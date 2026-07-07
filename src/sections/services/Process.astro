@@ -1,0 +1,31 @@
+---
+import { processSteps } from '../../data/services.js';
+---
+
+<section class="process">
+  <div class="process__head">
+    <div class="eyebrow">HOW IT WORKS</div>
+    <h2 class="process__heading">Simple, honest, no surprises</h2>
+  </div>
+  <div class="process__grid r-grid-4">
+    {processSteps.map((p) => (
+      <div class="process-step" data-reveal>
+        <div class="process-step__n">{p.n}</div>
+        <h3 class="process-step__title">{p.title}</h3>
+        <p class="process-step__body">{p.body}</p>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .process { max-width: 1200px; margin: 0 auto; padding: 60px 32px 20px; }
+  .process__head { text-align: center; margin-bottom: 44px; }
+  .eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: .14em; color: #c62828; margin-bottom: 10px; }
+  .process__heading { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 38px; color: #17191b; }
+  .process__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+  .process-step { background: #fff; border: 1px solid #e4e2dd; border-radius: 4px; padding: 26px 24px; }
+  .process-step__n { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 38px; color: #eab6b2; line-height: 1; margin-bottom: 14px; }
+  .process-step__title { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 19px; color: #17191b; margin-bottom: 7px; letter-spacing: .02em; }
+  .process-step__body { font-size: 14px; line-height: 1.55; color: #5c5e62; }
+</style>

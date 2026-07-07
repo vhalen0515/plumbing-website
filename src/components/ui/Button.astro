@@ -1,0 +1,33 @@
+---
+export interface Props {
+  href: string;
+  variant?: 'primary' | 'outline' | 'outline-dark' | 'inverse';
+  size?: 'md' | 'lg';
+  class?: string;
+}
+
+const { href, variant = 'primary', size = 'md', class: className = '' } = Astro.props;
+---
+
+<a href={href} class:list={['btn', `btn--${variant}`, `btn--${size}`, className]}>
+  <slot />
+</a>
+
+<style>
+  .btn {
+    display: inline-block;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    border-radius: 3px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .btn--md { font-size: 15px; padding: 14px 26px; }
+  .btn--lg { font-size: 17px; padding: 16px 30px; }
+
+  .btn--primary { background: #c62828; color: #fff; }
+  .btn--outline { border: 1.5px solid #45474a; color: #fff; font-weight: 500; background: transparent; }
+  .btn--outline-dark { border: 1.5px solid #cbc9c3; color: #17191b; font-weight: 500; background: transparent; }
+  .btn--inverse { background: #fff; color: #c62828; font-weight: 700; }
+</style>

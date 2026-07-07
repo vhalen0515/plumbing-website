@@ -1,0 +1,59 @@
+---
+import { site, footerLinks } from '../../data/site.js';
+---
+
+<footer class="site-footer">
+  <div class="site-footer__grid r-grid-4">
+    <div>
+      <div class="footer-brand">
+        <div class="footer-brand__mark">V</div>
+        <div class="footer-brand__name">VALLEY LINE PLUMBING</div>
+      </div>
+      <p class="footer-blurb">{site.defaultDescription.split('Licensed')[0].trim()}</p>
+    </div>
+    <div>
+      <div class="footer-heading">PAGES</div>
+      <div class="footer-links">
+        {footerLinks.map((link) => (
+          <a href={link.href}>{link.label}</a>
+        ))}
+      </div>
+    </div>
+    <div>
+      <div class="footer-heading">CONTACT</div>
+      <div class="footer-links">
+        <a href={site.phoneHref}>{site.phone}</a>
+        <a href={`mailto:${site.email}`}>{site.email}</a>
+        <span>{site.address.line1}<br />{site.address.line2}</span>
+      </div>
+    </div>
+    <div>
+      <div class="footer-heading">HOURS</div>
+      <div class="footer-hours">
+        {site.hours.weekdays}<br />{site.hours.saturday}<br />{site.hours.sunday}
+      </div>
+    </div>
+  </div>
+  <div class="site-footer__bottom-border">
+    <div class="site-footer__bottom">
+      <span>&copy; 2026 {site.name} &middot; {site.license}</span>
+      <span class="mono">Placeholder details &mdash; replace with your real business info</span>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer { background: #111315; color: #a7a9ac; }
+  .site-footer__grid { max-width: 1200px; margin: 0 auto; padding: 56px 32px 34px; display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; }
+  .footer-brand { display: flex; align-items: center; gap: 11px; margin-bottom: 16px; }
+  .footer-brand__mark { width: 38px; height: 38px; background: #c62828; display: flex; align-items: center; justify-content: center; color: #fff; font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 20px; border-radius: 3px; }
+  .footer-brand__name { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 19px; letter-spacing: .03em; color: #fff; }
+  .footer-blurb { font-size: 14px; line-height: 1.6; max-width: 300px; }
+  .footer-heading { font-family: 'Oswald', sans-serif; font-weight: 600; letter-spacing: .06em; font-size: 13px; color: #fff; margin-bottom: 14px; }
+  .footer-links { display: flex; flex-direction: column; gap: 9px; font-size: 14px; }
+  .footer-links a { color: #a7a9ac; }
+  .footer-hours { font-size: 14px; line-height: 1.7; }
+  .site-footer__bottom-border { border-top: 1px solid #26282b; }
+  .site-footer__bottom { max-width: 1200px; margin: 0 auto; padding: 18px 32px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 13px; color: #717376; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+</style>

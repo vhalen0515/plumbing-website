@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/ui/PageHero.astro';
+import MapAndPrimary from '../sections/service-areas/MapAndPrimary.astro';
+import Counties from '../sections/service-areas/Counties.astro';
+import NotSureBand from '../sections/service-areas/NotSureBand.astro';
+---
+
+<BaseLayout title="Service Areas — Valley Line Plumbing Co." active="areas">
+  <PageHero
+    eyebrow="SERVICE AREAS"
+    title="Local plumbing across the Central Valley"
+    description="Based in Fresno and serving communities throughout Fresno, Tulare, Kings, and Madera counties. If your town isn't listed, give us a call — chances are we cover it."
+    maxDescWidth="620px"
+  />
+  <MapAndPrimary />
+  <Counties />
+  <NotSureBand />
+</BaseLayout>

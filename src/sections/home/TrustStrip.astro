@@ -1,0 +1,49 @@
+---
+const stats = [
+    { value: '25+', label: 'Years in the Valley' },
+    { value: 'Licensed', label: '& fully insured' },
+    { value: 'Upfront', label: 'Flat-rate pricing' },
+    { value: 'Family', label: 'Owned & operated' },
+];
+---
+
+<div class="trust">
+    <div class="trust__inner r-grid-4">
+        {
+            stats.map((s) => (
+                <div>
+                    <div class="trust__value">{s.value}</div>
+                    <div class="trust__label">{s.label}</div>
+                </div>
+            ))
+        }
+    </div>
+</div>
+
+<style>
+    .trust {
+        background: #c62828;
+        color: #fff;
+    }
+    .trust__inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 22px 32px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 24px;
+        text-align: center;
+    }
+    .trust__value {
+        font-family: 'Oswald', sans-serif;
+        font-weight: 700;
+        font-size: 30px;
+        line-height: 1;
+    }
+    .trust__label {
+        font-size: 13px;
+        letter-spacing: 0.04em;
+        color: #ffd3ce;
+        margin-top: 3px;
+    }
+</style>

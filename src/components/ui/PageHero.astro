@@ -1,0 +1,29 @@
+---
+export interface Props {
+  eyebrow: string;
+  title: string;
+  description?: string;
+  maxTitleWidth?: string;
+  maxDescWidth?: string;
+}
+
+const { eyebrow, title, description, maxTitleWidth = '820px', maxDescWidth = '600px' } = Astro.props;
+---
+
+<section class="page-hero">
+  <div class="page-hero__bg"></div>
+  <div class="page-hero__inner">
+    <div class="page-hero__eyebrow">{eyebrow}</div>
+    <h1 class="page-hero__title r-h1" style={`max-width:${maxTitleWidth}`}>{title}</h1>
+    {description && <p class="page-hero__body" style={`max-width:${maxDescWidth}`}>{description}</p>}
+  </div>
+</section>
+
+<style>
+  .page-hero { background: #17191b; color: #fff; position: relative; overflow: hidden; }
+  .page-hero__bg { position: absolute; inset: 0; background: repeating-linear-gradient(135deg, #1c1e21, #1c1e21 24px, #191b1e 24px, #191b1e 48px); opacity: .7; }
+  .page-hero__inner { position: relative; max-width: 1200px; margin: 0 auto; padding: 60px 32px 64px; }
+  .page-hero__eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: .14em; color: #ff8a80; margin-bottom: 14px; }
+  .page-hero__title { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 52px; line-height: 1.02; letter-spacing: .005em; text-wrap: balance; }
+  .page-hero__body { font-size: 18px; line-height: 1.55; color: #c9c7c2; margin-top: 18px; }
+</style>

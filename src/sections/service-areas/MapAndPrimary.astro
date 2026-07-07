@@ -1,0 +1,159 @@
+---
+import { primaryAreas } from '../../data/areas.js';
+import { site } from '../../data/site.js';
+---
+
+<section class="map-primary r-split">
+    <div class="map-card">
+        <div class="map-card__frame">
+            <div class="map-card__pin-glow"></div>
+            <div class="map-card__label">
+                [ interactive service-area map ]<br /><span>embed Google Map of coverage here</span>
+            </div>
+            <div class="map-card__pin-wrap">
+                <div class="map-card__pin"></div>
+            </div>
+        </div>
+        <div class="map-card__footer">
+            <span class="map-card__dot"></span>
+            Headquarters — {site.address.line1}, {site.address.line2}
+        </div>
+    </div>
+    <div>
+        <h2 class="primary-heading">Primary coverage</h2>
+        <p class="primary-sub">Same-day and next-day service, no travel surcharge.</p>
+        <div class="primary-grid r-grid-2">
+            {
+                primaryAreas.map((c) => (
+                    <div class="primary-item">
+                        <span class="primary-item__dot" />
+                        <span class="primary-item__name">{c}</span>
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</section>
+
+<style>
+    .map-primary {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 64px 32px 20px;
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 44px;
+        align-items: stretch;
+    }
+    .map-card {
+        border-radius: 6px;
+        border: 1px solid #e4e2dd;
+        background: #fff;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+    }
+    .map-card__frame {
+        flex: 1;
+        min-height: 380px;
+        position: relative;
+        background: repeating-linear-gradient(
+            45deg,
+            #eceae6,
+            #eceae6 14px,
+            #e4e2dd 14px,
+            #e4e2dd 28px
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .map-card__pin-glow {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at 42% 46%, rgba(198, 40, 40, 0.16), transparent 46%);
+    }
+    .map-card__label {
+        position: relative;
+        text-align: center;
+        color: #8f8d85;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 13px;
+        line-height: 1.7;
+    }
+    .map-card__label span {
+        font-size: 11px;
+    }
+    .map-card__pin-wrap {
+        position: absolute;
+        left: 42%;
+        top: 46%;
+        transform: translate(-50%, -100%);
+    }
+    .map-card__pin {
+        width: 20px;
+        height: 20px;
+        background: #c62828;
+        border: 3px solid #fff;
+        border-radius: 50% 50% 50% 0;
+        transform: rotate(-45deg);
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+    }
+    .map-card__footer {
+        padding: 16px 22px;
+        border-top: 1px solid #ece9e4;
+        font-size: 14px;
+        color: #5c5e62;
+        display: flex;
+        align-items: center;
+        gap: 9px;
+    }
+    .map-card__dot {
+        width: 12px;
+        height: 12px;
+        background: #c62828;
+        border-radius: 50%;
+        display: inline-block;
+    }
+    .primary-heading {
+        font-family: 'Oswald', sans-serif;
+        font-weight: 700;
+        font-size: 26px;
+        color: #17191b;
+        margin-bottom: 6px;
+        letter-spacing: 0.02em;
+    }
+    .primary-sub {
+        font-size: 14px;
+        color: #5c5e62;
+        margin-bottom: 18px;
+    }
+    .primary-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+    .primary-item {
+        background: #fff;
+        border: 1px solid #e4e2dd;
+        border-radius: 4px;
+        padding: 12px 15px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .primary-item__dot {
+        width: 8px;
+        height: 8px;
+        background: #c62828;
+        border-radius: 50%;
+        flex: none;
+    }
+    .primary-item__name {
+        font-family: 'Oswald', sans-serif;
+        font-weight: 500;
+        font-size: 16px;
+        letter-spacing: 0.02em;
+        color: #17191b;
+    }
+</style>
