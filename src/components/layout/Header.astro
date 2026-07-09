@@ -1,5 +1,5 @@
 ---
-import { site, navLinks } from '../../data/site.js';
+import { site, navLinks, base } from '../../data/site.js';
 
 export interface Props {
     active?: 'home' | 'services' | 'about' | 'areas' | 'contact';
@@ -23,7 +23,7 @@ const { active = 'home' } = Astro.props;
 
 <header class="site-header">
     <div class="site-header__inner">
-        <a href="/" class="brand">
+        <a href={base} class="brand">
             <div class="brand__mark">V</div>
             <div class="brand__text">
                 <div class="brand__name">VALLEY LINE</div>
@@ -43,7 +43,7 @@ const { active = 'home' } = Astro.props;
                     </a>
                 ))
             }
-            <a href="/contact" class="nav-cta">GET A QUOTE</a>
+            <a href={`${base}contact`} class="nav-cta">GET A QUOTE</a>
         </nav>
     </div>
 </header>

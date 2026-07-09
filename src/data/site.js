@@ -1,3 +1,5 @@
+export const base = import.meta.env.BASE_URL;
+
 export const site = {
     name: 'Valley Line Plumbing Co.',
     shortName: 'Valley Line',
@@ -20,16 +22,16 @@ export const site = {
 };
 
 export const navLinks = [
-    { href: '/', label: 'HOME', key: 'home' },
-    { href: '/services', label: 'SERVICES', key: 'services' },
-    { href: '/about', label: 'ABOUT', key: 'about' },
-    { href: '/service-areas', label: 'SERVICE AREAS', key: 'areas' },
+    { href: `${base}`, label: 'HOME', key: 'home' },
+    { href: `${base}services`, label: 'SERVICES', key: 'services' },
+    { href: `${base}about`, label: 'ABOUT', key: 'about' },
+    { href: `${base}service-areas`, label: 'SERVICE AREAS', key: 'areas' },
 ];
 
 export const footerLinks = [
-    { href: '/', label: 'Home' },
-    { href: '/services', label: 'Services' },
-    { href: '/about', label: 'About' },
-    { href: '/service-areas', label: 'Service Areas' },
-    { href: '/contact', label: 'Contact' },
+    { href: `${base}`, label: 'Home' },
+    { href: `${base}services`, label: 'Services' },
+    { href: `${base}about`, label: 'About' },
+    { href: `${base}service-areas`, label: 'Service Areas' },
+    { href: `${base}contact`, label: 'Contact' },
 ];
