@@ -1,5 +1,6 @@
 ---
 import { servicesShort } from '../../data/services.js';
+import { base } from '../../data/site.js';
 ---
 
 <section class="services-preview">
@@ -8,12 +9,12 @@ import { servicesShort } from '../../data/services.js';
             <div class="eyebrow">WHAT WE DO</div>
             <h2 class="heading-2">Plumbing services you can count on</h2>
         </div>
-        <a href="/services" class="services-preview__link">ALL SERVICES &rarr;</a>
+        <a href={`${base}services`} class="services-preview__link">ALL SERVICES &rarr;</a>
     </div>
     <div class="services-preview__grid r-grid-3">
         {
             servicesShort.map((s) => (
-                <a href="/services" class="service-card" data-reveal>
+                <a href={`${base}services`} class="service-card" data-reveal>
                     <div class="service-card__bar" />
                     <h3 class="service-card__name">{s.name}</h3>
                     <p class="service-card__desc">{s.desc}</p>

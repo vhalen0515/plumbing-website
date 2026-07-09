@@ -1,5 +1,5 @@
 ---
-import { site } from '../../data/site.js';
+import { site, base } from '../../data/site.js';
 import { areasContact } from '../../data/areas.js';
 ---
 
@@ -33,7 +33,7 @@ import { areasContact } from '../../data/areas.js';
         <span class="sidebar__tag">{a}</span>
       ))}
     </div>
-    <a href="/service-areas" class="sidebar__link">SEE FULL SERVICE AREA &rarr;</a>
+    <a href={`${base}service-areas`} class="sidebar__link">SEE FULL SERVICE AREA &rarr;</a>
   </div>
 </div>
 

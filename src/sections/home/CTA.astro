@@ -1,6 +1,6 @@
 ---
 import Button from '../../components/ui/Button.astro';
-import { site } from '../../data/site.js';
+import { site, base } from '../../data/site.js';
 ---
 
 <section class="cta">
@@ -10,7 +10,7 @@ import { site } from '../../data/site.js';
     </p>
     <div class="cta__buttons">
         <Button href={site.phoneHref} size="lg">CALL {site.phone}</Button>
-        <Button href="/contact" variant="outline-dark" size="lg">REQUEST A QUOTE</Button>
+        <Button href={`${base}contact`} variant="outline-dark" size="lg">REQUEST A QUOTE</Button>
     </div>
 </section>
 

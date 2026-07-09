@@ -1,5 +1,6 @@
 ---
 import { areasShort } from '../../data/areas.js';
+import { base } from '../../data/site.js';
 ---
 
 <section class="area-strip">
@@ -13,7 +14,7 @@ import { areasShort } from '../../data/areas.js';
         ))}
       </div>
     </div>
-    <a href="/service-areas" class="area-strip__link">VIEW SERVICE AREAS &rarr;</a>
+    <a href={`${base}service-areas`} class="area-strip__link">VIEW SERVICE AREAS &rarr;</a>
   </div>
 </section>
 

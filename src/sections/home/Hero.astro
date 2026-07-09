@@ -1,6 +1,6 @@
 ---
 import Button from '../../components/ui/Button.astro';
-import { site } from '../../data/site.js';
+import { site, base } from '../../data/site.js';
 ---
 
 <section class="hero">
@@ -16,7 +16,7 @@ import { site } from '../../data/site.js';
                 across Fresno, Clovis, Visalia, and beyond. Licensed, insured, and upfront on price.
             </p>
             <div class="hero__ctas">
-                <Button href="/contact" size="lg">REQUEST A FREE QUOTE</Button>
+                <Button href={`${base}contact`} size="lg">REQUEST A FREE QUOTE</Button>
                 <Button href={site.phoneHref} variant="outline" size="lg">CALL {site.phone}</Button>
             </div>
         </div>

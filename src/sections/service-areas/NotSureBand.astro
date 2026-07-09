@@ -1,6 +1,6 @@
 ---
 import Button from '../../components/ui/Button.astro';
-import { site } from '../../data/site.js';
+import { site, base } from '../../data/site.js';
 ---
 
 <section class="not-sure-wrap">
@@ -12,7 +12,7 @@ import { site } from '../../data/site.js';
         </p>
         <div class="not-sure__buttons">
             <Button href={site.phoneHref} variant="inverse" size="lg">CALL {site.phone}</Button>
-            <Button href="/contact" variant="outline" size="lg">REQUEST A QUOTE</Button>
+            <Button href={`${base}contact`} variant="outline" size="lg">REQUEST A QUOTE</Button>
         </div>
     </div>
 </section>
