@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+import serviceArea from '../../assets/images/service-area.png';
 import { primaryAreas } from '../../data/areas.js';
 import { site } from '../../data/site.js';
 ---
@@ -6,12 +8,14 @@ import { site } from '../../data/site.js';
 <section class="map-primary r-split">
     <div class="map-card">
         <div class="map-card__frame">
-            <div class="map-card__pin-glow"></div>
-            <div class="map-card__label">
-                [ interactive service-area map ]<br /><span>embed Google Map of coverage here</span>
-            </div>
-            <div class="map-card__pin-wrap">
-                <div class="map-card__pin"></div>
+            <div class="map-card__frame">
+                <div class="map-card__frame">
+                    <Image
+                        src={serviceArea}
+                        alt="Valley Line Plumbing service area map"
+                        loading="lazy"
+                    />
+                </div>
             </div>
         </div>
         <div class="map-card__footer">
@@ -55,49 +59,14 @@ import { site } from '../../data/site.js';
     }
     .map-card__frame {
         flex: 1;
-        min-height: 380px;
+        aspect-ratio: 4 / 3;
         position: relative;
-        background: repeating-linear-gradient(
-            45deg,
-            #eceae6,
-            #eceae6 14px,
-            #e4e2dd 14px,
-            #e4e2dd 28px
-        );
-        display: flex;
-        align-items: center;
-        justify-content: center;
     }
-    .map-card__pin-glow {
-        position: absolute;
-        inset: 0;
-        background: radial-gradient(circle at 42% 46%, rgba(198, 40, 40, 0.16), transparent 46%);
-    }
-    .map-card__label {
-        position: relative;
-        text-align: center;
-        color: #8f8d85;
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 13px;
-        line-height: 1.7;
-    }
-    .map-card__label span {
-        font-size: 11px;
-    }
-    .map-card__pin-wrap {
-        position: absolute;
-        left: 42%;
-        top: 46%;
-        transform: translate(-50%, -100%);
-    }
-    .map-card__pin {
-        width: 20px;
-        height: 20px;
-        background: #c62828;
-        border: 3px solid #fff;
-        border-radius: 50% 50% 50% 0;
-        transform: rotate(-45deg);
-        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+    .map-card__frame img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
     }
     .map-card__footer {
         padding: 16px 22px;
@@ -155,5 +124,13 @@ import { site } from '../../data/site.js';
         font-size: 16px;
         letter-spacing: 0.02em;
         color: #17191b;
+    }
+
+    @media (max-width: 700px) {
+        .map-primary {
+            grid-template-columns: 1fr;
+            padding: 40px 20px 20px;
+            gap: 28px;
+        }
     }
 </style>
